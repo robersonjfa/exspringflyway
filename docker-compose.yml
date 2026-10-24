@@ -1,0 +1,15 @@
+services:
+  db:
+    image: postgres:18
+    container_name: loja_flyway
+    environment:
+      POSTGRES_USER: aluno
+      POSTGRES_PASSWORD: aluno123
+      POSTGRES_DB: loja
+    ports:
+      - "5433:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql
+
+volumes:
+  pgdata:

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Loja — Spring Data + Flyway</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>Loja</h1>
+  <p class="sub">Exemplo de Spring Data JPA (ORM) + Flyway (versionamento) com PostgreSQL</p>
+</header>
+
+<nav class="abas">
+  <button class="aba ativa" data-tela="clientes">Clientes</button>
+  <button class="aba" data-tela="produtos">Produtos</button>
+  <button class="aba" data-tela="pedidos">Pedidos</button>
+</nav>
+
+<main>
+  <!-- ================= CLIENTES ================= -->
+  <section id="tela-clientes" class="tela ativa">
+    <div class="painel">
+      <h2 id="titulo-form-cliente">Novo cliente</h2>
+      <form id="form-cliente">
+        <input type="hidden" id="cliente-id">
+        <label>Nome
+          <input type="text" id="cliente-nome" maxlength="120" required>
+        </label>
+        <label>E-mail
+          <input type="email" id="cliente-email" maxlength="160" required>
+        </label>
+        <label class="linha-check">
+          <input type="checkbox" id="cliente-ativo" checked> Ativo
+        </label>
+        <div class="acoes-form">
+          <button type="submit" class="primario">Salvar</button>
+          <button type="button" class="secundario escondido" id="cancelar-cliente">Cancelar</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="painel">
+      <h2>Clientes cadastrados</h2>
+      <table>
+        <thead>
+        <tr><th>#</th><th>Nome</th><th>E-mail</th><th>Situação</th><th>Criado em</th><th>Ações</th></tr>
+        </thead>
+        <tbody id="tabela-clientes"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ================= PRODUTOS ================= -->
+  <section id="tela-produtos" class="tela">
+    <div class="painel">
+      <h2 id="titulo-form-produto">Novo produto</h2>
+      <form id="form-produto">
+        <input type="hidden" id="produto-id">
+        <label>Nome
+          <input type="text" id="produto-nome" maxlength="120" required>
+        </label>
+        <label>Preço (R$)
+          <input type="number" id="produto-preco" min="0" step="0.01" required>
+        </label>
+        <label>Estoque
+          <input type="number" id="produto-estoque" min="0" step="1" required>
+        </label>
+        <div class="acoes-form">
+          <button type="submit" class="primario">Salvar</button>
+          <button type="button" class="secundario escondido" id="cancelar-produto">Cancelar</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="painel">
+      <h2>Produtos</h2>
+      <table>
+        <thead>
+        <tr><th>#</th><th>Nome</th><th>Preço</th><th>Estoque</th><th>Ações</th></tr>
+        </thead>
+        <tbody id="tabela-produtos"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ================= PEDIDOS ================= -->
+  <section id="tela-pedidos" class="tela">
+    <div class="painel">
+      <h2 id="titulo-form-pedido">Novo pedido</h2>
+      <form id="form-pedido">
+        <input type="hidden" id="pedido-id">
+        <label>Cliente
+          <select id="pedido-cliente" required></select>
+        </label>
+        <label>Produto
+          <select id="pedido-produto" required></select>
+        </label>
+        <label>Quantidade
+          <input type="number" id="pedido-quantidade" min="1" step="1" value="1" required>
+        </label>
+        <label>Observação
+          <input type="text" id="pedido-observacao" maxlength="200" placeholder="opcional">
+        </label>
+        <div class="acoes-form">
+          <button type="submit" class="primario">Salvar</button>
+          <button type="button" class="secundario escondido" id="cancelar-pedido">Cancelar</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="painel">
+      <h2>Pedidos</h2>
+      <table>
+        <thead>
+        <tr><th>#</th><th>Cliente</th><th>Produto</th><th>Qtd.</th><th>Total</th><th>Observação</th><th>Data</th><th>Ações</th></tr>
+        </thead>
+        <tbody id="tabela-pedidos"></tbody>
+      </table>
+    </div>
+
+    <div class="painel">
+      <h2>Resumo por cliente</h2>
+      <table>
+        <thead>
+        <tr><th>Cliente</th><th>Pedidos</th><th>Itens</th><th>Total</th></tr>
+        </thead>
+        <tbody id="tabela-resumo"></tbody>
+      </table>
+    </div>
+  </section>
+</main>
+
+<div id="toast" class="toast escondido"></div>
+<script src="app.js"></script>
+</body>
+</html>
