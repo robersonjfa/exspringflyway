@@ -1,6 +1,8 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:${DB_PORT:5433}/${DB_NAME:loja}
+    # PostgreSQL instalado na maquina local (porta padrao 5432).
+    # Se o seu banco estiver em outro host/porta, use as variaveis DB_HOST, DB_PORT, DB_NAME, DB_USER e DB_PASSWORD.
+    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_NAME:loja}
     username: ${DB_USER:aluno}
     password: ${DB_PASSWORD:aluno123}
   jpa:

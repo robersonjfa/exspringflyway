@@ -1,3 +1,6 @@
+# OPCIONAL: use apenas se quiser o banco em container.
+# Se o PostgreSQL ja esta instalado na maquina, ignore este arquivo (o projeto usa a 5432 local).
+
 services:
   db:
     image: postgres:18
@@ -7,7 +10,7 @@ services:
       POSTGRES_PASSWORD: aluno123
       POSTGRES_DB: loja
     ports:
-      - "5433:5432"
+      - "5432:5432"
     volumes:
       - pgdata:/var/lib/postgresql
 

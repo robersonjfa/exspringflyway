@@ -22,22 +22,42 @@ decidido pelo ORM.
 
 ## Como rodar
 
-Pré-requisitos: **Docker**, **Java 17+** e **Maven**.
+Pré-requisitos: **Java 17+**, **Maven** e **PostgreSQL instalado na máquina** (porta padrão 5432).
+
+### 1. Criar o banco e o usuário (uma vez só)
+
+No pgAdmin ou no terminal:
 
 ```bash
-# 1. sobe o PostgreSQL (porta 5433 do host)
-docker compose up -d
+psql -U postgres -c "CREATE USER aluno WITH PASSWORD 'aluno123';"
+psql -U postgres -c "CREATE DATABASE loja OWNER aluno;"
+```
 
-# 2. sobe a aplicação (o Flyway roda as migrações na inicialização)
+> No Windows, o `psql` fica em `C:\Program Files\PostgreSQL\18\bin`. Se o `postgres` pedir senha,
+> é a senha que você definiu na instalação. Se o banco exigir senha na conexão local (`pg_hba.conf`),
+> mantenha o método `scram-sha-256` — o usuário `aluno` já foi criado com senha.
+
+### 2. Subir a aplicação
+
+```bash
 mvn spring-boot:run
 ```
 
 Abra **http://localhost:8080** — a interface já lista os dados criados pelas migrações.
+O Flyway roda as quatro migrações na primeira subida e registra em `flyway_schema_history`.
 
 No IntelliJ: `File > Open` no `pom.xml`, espere baixar as dependências e rode `LojaApplication`.
 
-> Se a porta 5433 estiver ocupada, rode com outra porta:
-> `POSTGRES_PORT` não é usada aqui; ajuste `docker-compose.yml` e a variável `DB_PORT` da aplicação.
+Se o seu banco estiver em outra porta/host (ou com outro usuário), use variáveis de ambiente:
+
+```bash
+DB_PORT=5432 DB_USER=aluno DB_PASSWORD=aluno123 DB_NAME=loja mvn spring-boot:run
+```
+
+### Opcional: banco em container
+
+Se preferir não instalar o PostgreSQL, há um `docker-compose.yml` que sobe o banco na mesma 5432.
+Nesse caso, rode `docker compose up -d` antes de subir a aplicação.
 
 ## API
 
@@ -63,9 +83,9 @@ e, nos erros de validação, a lista `campos`.
 
 1. **Suba tudo e abra a tela.** Os clientes/produtos/pedidos vieram do `V2__dados_iniciais.sql`:
    ninguém digitou `INSERT` no Java.
-2. **Mostre o histórico no banco:**
+2. **Mostre o histórico no banco** (no pgAdmin ou no psql):
    ```bash
-   docker exec -it loja_flyway psql -U aluno -d loja \
+   psql -U aluno -d loja \
      -c "select installed_rank, version, description, success from flyway_schema_history order by installed_rank;"
    ```
    Quatro linhas: `1 criar tabelas`, `2 dados iniciais`, `3 cliente ativo`, `4 pedido observacao`.
