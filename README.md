@@ -59,6 +59,33 @@ DB_PORT=5432 DB_USER=aluno DB_PASSWORD=aluno123 DB_NAME=loja mvn spring-boot:run
 Se preferir não instalar o PostgreSQL, há um `docker-compose.yml` que sobe o banco na mesma 5432.
 Nesse caso, rode `docker compose up -d` antes de subir a aplicação.
 
+## Importar no Eclipse
+
+O projeto já está no formato que o Eclipse entende (**Maven**), com Java 17 e codificação UTF-8 configurada.
+
+1. **File → Import… → Maven → Existing Maven Projects**
+2. Em *Root Directory*, escolha a pasta do projeto (a que tem o `pom.xml`) → **Finish**
+3. Espere o Eclipse baixar as dependências (barra de progresso no canto). Se marcar erro no `pom.xml`,
+   clique com o botão direito no projeto → **Maven → Update Project** (ou `Alt+F5`) e marque *Force Update*.
+4. Confira o Java: **Window → Preferences → Java → Installed JREs** precisa ter um **JDK 17 ou 21**
+   (JRE 8/11 não roda Spring Boot 3).
+5. Rode: botão direito em `LojaApplication.java` → **Run As → Java Application**.
+6. Acesse **http://localhost:8080**.
+
+Sem Eclipse "for Java EE" (sem o plugin Maven), instale por **Help → Eclipse Marketplace → "m2e"**.
+Se os acentos aparecerem quebrados, em **Window → Preferences → General → Workspace → Text file encoding**
+escolha **UTF-8** (o projeto já pede isso pelo `.settings`).
+
+Pelo terminal, sem Maven instalado, use o wrapper que vem no repositório:
+
+```bash
+./mvnw spring-boot:run        # Linux/macOS
+mvnw.cmd spring-boot:run      # Windows
+```
+
+> Antes de rodar, o banco `loja` e o usuário `aluno` precisam existir (seção anterior).
+> O Flyway cria as tabelas na primeira subida — não é preciso rodar script nenhum na mão.
+
 ## API
 
 | Método | Rota | O que faz |

@@ -5,3 +5,10 @@ target/
 *.iml
 .vscode/
 .DS_Store
+
+# Eclipse (gerados na importação; o único arquivo que versionamos é .settings/org.eclipse.core.resources.prefs)
+.classpath
+.project
+.settings/org.eclipse.jdt.*
+.settings/org.eclipse.m2e*
+.settings/org.springframework.*
