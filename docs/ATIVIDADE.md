@@ -165,14 +165,14 @@ Depois, faça a categoria aparecer na API e na tela, como você fez com a marca.
 2. Print do `select * from flyway_schema_history` mostrando até a `V5` (ou `V6`).
 3. Print da tela com um produto cadastrado **com marca** (e categoria, se fez o desafio).
 
-**Critérios (10 pontos)**
+**Não vale nota.** O que eu vou olhar:
 
-| Item | Pontos |
-|---|---|
-| Migração `V5` correta, aplicada e visível no histórico | 3,0 |
-| Entidade, DTO e API devolvendo a marca | 3,0 |
-| Tela exibindo e permitindo editar a marca | 2,0 |
-| Desafio da `V6` (categoria com `DEFAULT`) explicado | 2,0 |
+- A migração `V5` aplicada e visível no `flyway_schema_history`
+- A marca voltando no `GET` e aparecendo na tela
+- No desafio: a explicação do `DEFAULT` por escrito, com as suas palavras
+
+Se algo não funcionar, o que interessa é o diagnóstico: qual mensagem apareceu e onde você
+procurou o problema.
 
 ---
 
