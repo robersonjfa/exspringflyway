@@ -159,20 +159,15 @@ Depois, faça a categoria aparecer na API e na tela, como você fez com a marca.
 
 <div class="quebra"></div>
 
-## Entrega
+## Sem entrega
 
-1. Link do seu repositório no GitHub (com os commits das migrações).
-2. Print do `select * from flyway_schema_history` mostrando até a `V5` (ou `V6`).
-3. Print da tela com um produto cadastrado **com marca** (e categoria, se fez o desafio).
+Esta atividade **não tem entrega e não vale nota**: o objetivo é vocês fazerem na máquina de
+vocês, com calma, e saírem com o projeto rodando.
 
-**Não vale nota.** O que eu vou olhar:
+Se quiserem guardar o que fizeram, façam um commit no GitHub de vocês — é opcional.
 
-- A migração `V5` aplicada e visível no `flyway_schema_history`
-- A marca voltando no `GET` e aparecendo na tela
-- No desafio: a explicação do `DEFAULT` por escrito, com as suas palavras
-
-Se algo não funcionar, o que interessa é o diagnóstico: qual mensagem apareceu e onde você
-procurou o problema.
+Na próxima aula seguimos a partir daí. Se travar, o que interessa é o diagnóstico: qual mensagem
+apareceu e onde você procurou o problema (a tabela abaixo ajuda).
 
 ---
 
