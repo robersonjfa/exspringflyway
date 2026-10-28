@@ -12,3 +12,5 @@ target/
 .settings/org.eclipse.jdt.*
 .settings/org.eclipse.m2e*
 .settings/org.springframework.*
+
+docs/_atividade_print.html

@@ -9,6 +9,21 @@ e nem um script solto na pasta do banco.
 Tem CRUD completo (clientes, produtos e pedidos) e uma interface simples em **HTML + CSS +
 JavaScript puro** — sem framework de front — para o aluno ver o ORM funcionando de ponta a ponta.
 
+## Como a aplicação está organizada
+
+![Arquitetura: navegador → Spring Boot (Controller → Service → Repository) → PostgreSQL, com o Flyway aplicando as migrações na subida](docs/arquitetura.svg)
+
+O caminho de uma requisição: o navegador chama `/api/...` → o **Controller** recebe → o **Service**
+aplica a regra (`@Transactional`) → o **Repository** (Spring Data) conversa com o banco via
+**Hibernate/JPA**. Em paralelo, na subida, o **Flyway** aplica as migrações pendentes e registra
+tudo em `flyway_schema_history`.
+
+## Atividade prática
+
+O roteiro da atividade em sala está em **[docs/ATIVIDADE.md](docs/ATIVIDADE.md)**: acrescentar a
+coluna `marca` no produto passando por migração → entidade → API → tela, mais dois desafios
+(`categoria` com `DEFAULT` e o teste do checksum).
+
 ## A ideia em duas linhas
 
 | Peça | O que faz |

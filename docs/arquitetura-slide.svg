@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="860" viewBox="0 0 1600 860" font-family="DejaVu Sans, Arial, sans-serif">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#2f5597"/>
+    </marker>
+    <marker id="al" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#b45309"/>
+    </marker>
+  </defs>
+
+  <rect width="1600" height="860" fill="#ffffff"/>
+
+  <!-- Navegador -->
+  <rect x="40" y="40" width="1520" height="120" rx="14" fill="#eef3fb" stroke="#1f3864" stroke-width="3"/>
+  <text x="70" y="85" font-size="26" font-weight="bold" fill="#1f3864">NAVEGADOR</text>
+  <text x="70" y="125" font-size="26" fill="#1f2430">index.html · style.css · app.js — chama a API com fetch</text>
+
+  <!-- seta HTTP -->
+  <line x1="800" y1="162" x2="800" y2="205" stroke="#2f5597" stroke-width="4" marker-end="url(#a)"/>
+  <rect x="815" y="165" width="250" height="36" rx="8" fill="#ffffff"/>
+  <text x="830" y="192" font-size="24" fill="#2f5597">HTTP + JSON</text>
+
+  <!-- Spring Boot -->
+  <rect x="40" y="210" width="1080" height="330" rx="16" fill="#f7f9fc" stroke="#1f3864" stroke-width="3" stroke-dasharray="10 7"/>
+  <text x="70" y="252" font-size="26" font-weight="bold" fill="#1f3864">APLICAÇÃO SPRING BOOT</text>
+
+  <rect x="70" y="275" width="300" height="110" rx="12" fill="#ffffff" stroke="#2f5597" stroke-width="3"/>
+  <text x="95" y="318" font-size="26" font-weight="bold" fill="#1f3864">Controller</text>
+  <text x="95" y="356" font-size="22" fill="#5a6478">recebe /api/...</text>
+
+  <rect x="420" y="275" width="300" height="110" rx="12" fill="#ffffff" stroke="#2f5597" stroke-width="3"/>
+  <text x="445" y="318" font-size="26" font-weight="bold" fill="#1f3864">Service</text>
+  <text x="445" y="356" font-size="22" fill="#5a6478">regras + transação</text>
+
+  <rect x="770" y="275" width="320" height="110" rx="12" fill="#ffffff" stroke="#2f5597" stroke-width="3"/>
+  <text x="795" y="318" font-size="26" font-weight="bold" fill="#1f3864">Repository</text>
+  <text x="795" y="356" font-size="22" fill="#5a6478">Spring Data JPA</text>
+
+  <line x1="372" y1="330" x2="415" y2="330" stroke="#2f5597" stroke-width="4" marker-end="url(#a)"/>
+  <line x1="722" y1="330" x2="765" y2="330" stroke="#2f5597" stroke-width="4" marker-end="url(#a)"/>
+
+  <rect x="70" y="415" width="1020" height="95" rx="12" fill="#eaf0f9" stroke="#2f5597" stroke-width="2"/>
+  <text x="95" y="455" font-size="25" font-weight="bold" fill="#1f3864">Hibernate / JPA</text>
+  <text x="95" y="490" font-size="23" fill="#1f2430">transforma objeto em SQL · ddl-auto: validate (só confere, não cria)</text>
+
+  <!-- seta JDBC -->
+  <line x1="580" y1="545" x2="580" y2="590" stroke="#2f5597" stroke-width="4" marker-end="url(#a)"/>
+  <rect x="595" y="550" width="140" height="34" rx="8" fill="#ffffff"/>
+  <text x="610" y="576" font-size="23" fill="#2f5597">JDBC</text>
+
+  <!-- PostgreSQL -->
+  <rect x="40" y="595" width="1080" height="200" rx="16" fill="#f7f9fc" stroke="#1f3864" stroke-width="3" stroke-dasharray="10 7"/>
+  <text x="70" y="638" font-size="26" font-weight="bold" fill="#1f3864">POSTGRESQL — base loja (5432)</text>
+
+  <rect x="70" y="660" width="230" height="110" rx="10" fill="#ffffff" stroke="#2f5597" stroke-width="2"/>
+  <text x="90" y="697" font-size="24" font-weight="bold" fill="#1f3864">cliente</text>
+  <text x="90" y="730" font-size="19" fill="#5a6478">nome · email · ativo</text>
+
+  <rect x="320" y="660" width="230" height="110" rx="10" fill="#ffffff" stroke="#2f5597" stroke-width="2"/>
+  <text x="340" y="697" font-size="24" font-weight="bold" fill="#1f3864">produto</text>
+  <text x="340" y="730" font-size="19" fill="#5a6478">nome · preço · estoque</text>
+
+  <rect x="570" y="660" width="230" height="110" rx="10" fill="#ffffff" stroke="#2f5597" stroke-width="2"/>
+  <text x="590" y="697" font-size="24" font-weight="bold" fill="#1f3864">pedido</text>
+  <text x="590" y="730" font-size="19" fill="#5a6478">cliente · produto · qtd</text>
+
+  <rect x="820" y="660" width="270" height="110" rx="10" fill="#fff4e6" stroke="#b45309" stroke-width="2"/>
+  <text x="840" y="697" font-size="21" font-weight="bold" fill="#b45309">flyway_schema_history</text>
+  <text x="840" y="730" font-size="19" fill="#5a6478">o diário das migrações</text>
+
+  <!-- Flyway -->
+  <rect x="1160" y="210" width="400" height="330" rx="16" fill="#fff4e6" stroke="#b45309" stroke-width="3"/>
+  <text x="1185" y="252" font-size="26" font-weight="bold" fill="#b45309">FLYWAY</text>
+  <text x="1185" y="292" font-size="23" fill="#1f2430">na subida da aplicação</text>
+  <text x="1185" y="335" font-size="22" fill="#5a6478">db/migration</text>
+  <text x="1185" y="372" font-size="22" fill="#1f2430">V1 · V2 · V3 · V4</text>
+  <text x="1185" y="420" font-size="22" fill="#5a6478">aplica só o que falta,</text>
+  <text x="1185" y="452" font-size="22" fill="#5a6478">em ordem de versão</text>
+  <text x="1185" y="500" font-size="22" font-weight="bold" fill="#b45309">nova mudança = V5, V6…</text>
+
+  <line x1="1155" y1="430" x2="1100" y2="655" stroke="#b45309" stroke-width="4" marker-end="url(#al)"/>
+
+  <text x="40" y="832" font-size="22" fill="#5a6478">Banco primeiro, código depois: migração cria a coluna, entidade mapeia, API expõe, tela mostra.</text>
+</svg>
